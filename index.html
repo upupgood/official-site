@@ -1,0 +1,419 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>上上吉 — 让每一次到家服务，都值得托付</title>
+<meta name="description" content="上上吉 是连接客户与家庭服务者的灵活用工平台：服务者零门槛入驻、智能匹配、安全结算；客户透明定价、安全支付、服务保障。" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@600;800&family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    /* Brand */
+    --primary:#ff5e00;
+    --primary-hover:#ff4d00;
+    --primary-light:#fff0eb;
+    --primary-soft:#ffdfd2;
+    /* Neutrals */
+    --bg:#f6f6f6;
+    --bg-alt:#f7f7f7;
+    --surface:#ffffff;
+    --bg-muted:#ececee;
+    --text:#1a1a1a;
+    --text-2:#404040;
+    --text-3:#8f8f8f;
+    --border:#e3e3e3;
+    --border-warm:#dbcfc8;
+    /* Servant warm */
+    --brown:#453104;
+    --brown-deep:#904500;
+    --gold-1:#f8e4bf;
+    --gold-2:#f4c385;
+    --cream:#fffaf1;
+    --envelope-1:#fff1ee;
+    --envelope-2:#ffebc8;
+    /* Semantic */
+    --info:#2fb0fc;
+    --danger:#fe1f1f;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0}
+  body{
+    font-family:'Inter','PingFang SC','Hiragino Sans GB','Microsoft YaHei',sans-serif;
+    color:var(--text);
+    background:var(--bg);
+    -webkit-font-smoothing:antialiased;
+    line-height:1.6;
+  }
+  .serif{font-family:'Noto Serif SC',serif;letter-spacing:.02em}
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:1200px;margin:0 auto;padding:0 24px}
+
+  /* Nav */
+  .nav{
+    position:sticky;top:0;z-index:50;
+    background:rgba(246,246,246,.85);
+    backdrop-filter:saturate(180%) blur(14px);
+    border-bottom:1px solid var(--border);
+  }
+  .nav-inner{display:flex;align-items:center;justify-content:space-between;height:68px}
+  .logo{display:flex;align-items:center;gap:10px;font-weight:800;font-size:20px}
+  .logo-mark{
+    width:34px;height:34px;border-radius:10px;
+    background:linear-gradient(135deg,var(--primary) 0%,#ff8a00 100%);
+    color:#fff;display:grid;place-items:center;font-family:'Noto Serif SC',serif;font-weight:800;
+    box-shadow:0 6px 18px rgba(255,94,0,.35);
+  }
+  .nav-links{display:flex;gap:32px;font-size:15px;color:var(--text-2)}
+  .nav-links a:hover{color:var(--primary)}
+  .nav-cta{
+    background:var(--primary);color:#fff;padding:10px 20px;border-radius:999px;font-weight:600;font-size:14px;
+    transition:.2s;
+  }
+  .nav-cta:hover{background:var(--primary-hover);transform:translateY(-1px)}
+
+  /* Hero */
+  .hero{
+    position:relative;overflow:hidden;
+    padding:96px 0 120px;
+  }
+  .hero::before{
+    content:"";position:absolute;inset:0;z-index:0;
+    background:
+      radial-gradient(900px 500px at 85% -10%, var(--primary-light) 0%, transparent 60%),
+      radial-gradient(700px 400px at 0% 100%, var(--envelope-2) 0%, transparent 55%);
+  }
+  .hero-inner{position:relative;z-index:1;display:grid;grid-template-columns:1.15fr .85fr;gap:60px;align-items:center}
+  .eyebrow{
+    display:inline-flex;align-items:center;gap:8px;
+    background:var(--primary-light);color:var(--primary);
+    padding:6px 14px;border-radius:999px;font-size:13px;font-weight:600;
+    border:1px solid var(--primary-soft);
+  }
+  .eyebrow .dot{width:6px;height:6px;border-radius:50%;background:var(--primary)}
+  h1.headline{
+    font-size:64px;line-height:1.12;margin:20px 0 24px;font-weight:800;letter-spacing:-.01em;
+  }
+  .headline .accent{
+    background:linear-gradient(120deg,var(--primary) 0%,#ff8a00 60%,var(--gold-2) 100%);
+    -webkit-background-clip:text;background-clip:text;color:transparent;
+  }
+  .lead{font-size:19px;color:var(--text-2);max-width:560px;margin-bottom:36px}
+  .cta-row{display:flex;gap:14px;flex-wrap:wrap}
+  .btn{
+    display:inline-flex;align-items:center;gap:8px;
+    padding:14px 26px;border-radius:999px;font-weight:600;font-size:15px;transition:.2s;
+    border:1px solid transparent;cursor:pointer;
+  }
+  .btn-primary{background:var(--primary);color:#fff;box-shadow:0 10px 24px -8px rgba(255,94,0,.55)}
+  .btn-primary:hover{background:var(--primary-hover);transform:translateY(-2px)}
+  .btn-ghost{background:#fff;color:var(--text);border-color:var(--border)}
+  .btn-ghost:hover{border-color:var(--primary);color:var(--primary)}
+
+  .stats{display:flex;gap:40px;margin-top:48px}
+  .stat .num{font-family:'Noto Serif SC',serif;font-size:30px;font-weight:800;color:var(--primary)}
+  .stat .label{font-size:13px;color:var(--text-3);margin-top:2px}
+
+  /* Hero card */
+  .hero-card{
+    position:relative;
+    background:#fff;border-radius:28px;padding:28px;
+    box-shadow:0 30px 60px -25px rgba(69,49,4,.25), 0 10px 25px -10px rgba(0,0,0,.08);
+    border:1px solid var(--border);
+  }
+  .hero-card::after{
+    content:"";position:absolute;inset:auto -28px -28px auto;width:160px;height:160px;
+    background:linear-gradient(135deg,var(--gold-1),var(--gold-2));border-radius:50%;
+    z-index:-1;filter:blur(2px);opacity:.7;
+  }
+  .card-row{display:flex;align-items:center;gap:14px;padding:14px 0;border-bottom:1px dashed var(--border-warm)}
+  .card-row:last-child{border-bottom:0}
+  .avatar{
+    width:48px;height:48px;border-radius:14px;flex:0 0 48px;
+    display:grid;place-items:center;color:#fff;font-weight:700;font-family:'Noto Serif SC',serif;
+  }
+  .a1{background:linear-gradient(135deg,#ff5e00,#ff8a00)}
+  .a2{background:linear-gradient(135deg,var(--brown),var(--brown-deep))}
+  .a3{background:linear-gradient(135deg,#2fb0fc,#1d79c4)}
+  .name{font-weight:600;font-size:15px}
+  .skill{font-size:12px;color:var(--text-3);margin-top:2px}
+  .price{margin-left:auto;color:var(--primary);font-weight:700}
+  .vip{
+    display:inline-block;font-size:11px;font-weight:700;
+    padding:2px 8px;border-radius:999px;margin-left:8px;
+    background:linear-gradient(135deg,var(--gold-1),var(--gold-2));color:var(--brown);
+  }
+
+  /* Section */
+  section{padding:100px 0}
+  .sec-head{text-align:center;max-width:680px;margin:0 auto 56px}
+  .sec-tag{font-size:13px;color:var(--primary);font-weight:700;letter-spacing:.18em;text-transform:uppercase}
+  .sec-title{font-size:42px;font-weight:800;margin:12px 0 14px;letter-spacing:-.01em}
+  .sec-sub{color:var(--text-3);font-size:17px}
+
+  /* Roles */
+  .roles{display:grid;grid-template-columns:1fr 1fr;gap:28px}
+  .role-card{
+    border-radius:24px;padding:40px;position:relative;overflow:hidden;
+    border:1px solid var(--border);
+  }
+  .role-servant{
+    background:linear-gradient(160deg,var(--envelope-2) 0%,var(--envelope-1) 60%,#fff 100%);
+    border-color:var(--border-warm);
+  }
+  .role-customer{
+    background:linear-gradient(160deg,#fff 0%,var(--bg-alt) 60%,var(--primary-light) 100%);
+  }
+  .role-icon{
+    width:56px;height:56px;border-radius:16px;display:grid;place-items:center;font-size:24px;
+    margin-bottom:20px;font-family:'Noto Serif SC',serif;font-weight:800;color:#fff;
+  }
+  .role-servant .role-icon{background:linear-gradient(135deg,var(--brown),var(--brown-deep));color:var(--cream)}
+  .role-customer .role-icon{background:linear-gradient(135deg,var(--primary),#ff8a00)}
+  .role-card h3{font-size:26px;margin:0 0 8px;font-weight:800}
+  .role-card p.role-sub{color:var(--text-2);margin:0 0 24px}
+  .role-list{list-style:none;padding:0;margin:0}
+  .role-list li{padding:10px 0;display:flex;gap:12px;font-size:15px;color:var(--text-2);border-top:1px dashed rgba(0,0,0,.06)}
+  .role-list li::before{content:"";width:18px;height:18px;border-radius:50%;flex:0 0 18px;margin-top:3px}
+  .role-servant .role-list li::before{background:radial-gradient(circle at 30% 30%,var(--gold-2),var(--brown))}
+  .role-customer .role-list li::before{background:radial-gradient(circle at 30% 30%,#ff8a00,var(--primary))}
+
+  /* Features grid */
+  .features{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+  .feature{
+    background:#fff;border:1px solid var(--border);border-radius:20px;padding:28px;
+    transition:.25s;
+  }
+  .feature:hover{transform:translateY(-4px);border-color:var(--primary-soft);box-shadow:0 18px 40px -20px rgba(255,94,0,.25)}
+  .f-icon{
+    width:44px;height:44px;border-radius:12px;background:var(--primary-light);color:var(--primary);
+    display:grid;place-items:center;font-weight:800;font-family:'Noto Serif SC',serif;font-size:18px;margin-bottom:16px;
+  }
+  .feature h4{margin:0 0 6px;font-size:17px;font-weight:700}
+  .feature p{margin:0;color:var(--text-3);font-size:14px}
+
+  /* Process */
+  .process{
+    background:#fff;border-radius:28px;padding:60px;border:1px solid var(--border);
+    display:grid;grid-template-columns:repeat(4,1fr);gap:32px;position:relative;overflow:hidden;
+  }
+  .process::before{
+    content:"";position:absolute;left:0;right:0;top:0;height:4px;
+    background:linear-gradient(90deg,var(--primary),var(--gold-2),var(--info),var(--primary));
+  }
+  .step .num{
+    font-family:'Noto Serif SC',serif;font-size:40px;font-weight:800;color:var(--primary);line-height:1
+  }
+  .step h5{margin:14px 0 6px;font-size:16px;font-weight:700}
+  .step p{margin:0;color:var(--text-3);font-size:14px}
+
+  /* CTA banner */
+  .cta-banner{
+    margin:0 auto;max-width:1200px;
+    background:linear-gradient(135deg,var(--brown) 0%,var(--brown-deep) 60%,var(--primary) 120%);
+    color:var(--cream);border-radius:28px;padding:60px;
+    display:flex;align-items:center;justify-content:space-between;gap:32px;
+    position:relative;overflow:hidden;
+  }
+  .cta-banner::after{
+    content:"";position:absolute;right:-80px;top:-80px;width:300px;height:300px;border-radius:50%;
+    background:radial-gradient(circle,var(--gold-2) 0%,transparent 70%);opacity:.45;
+  }
+  .cta-banner h3{font-size:32px;margin:0 0 10px;font-family:'Noto Serif SC',serif}
+  .cta-banner p{margin:0;color:#fff6e4;opacity:.85}
+  .cta-banner .btn-primary{background:linear-gradient(135deg,var(--gold-1),var(--gold-2));color:var(--brown);box-shadow:none}
+  .cta-banner .btn-primary:hover{filter:brightness(1.05)}
+
+  /* Footer */
+  footer{padding:60px 0 40px;color:var(--text-3);font-size:14px;border-top:1px solid var(--border);margin-top:80px;background:#fff}
+  .foot{display:flex;justify-content:space-between;flex-wrap:wrap;gap:24px}
+  .foot a:hover{color:var(--primary)}
+
+  @media (max-width:900px){
+    .hero{padding:60px 0 80px}
+    .hero-inner{grid-template-columns:1fr;gap:40px}
+    h1.headline{font-size:42px}
+    .roles,.features,.process{grid-template-columns:1fr;gap:20px;padding:32px}
+    .nav-links{display:none}
+    .stats{flex-wrap:wrap;gap:24px}
+    .cta-banner{flex-direction:column;text-align:center;padding:40px 28px}
+    section{padding:64px 0}
+    .sec-title{font-size:30px}
+  }
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap nav-inner">
+    <a class="logo" href="#">
+      <span class="logo-mark">吉</span>
+      <span>上上吉 <span style="color:var(--text-3);font-weight:500;font-size:13px">Upu'p</span></span>
+    </a>
+    <nav class="nav-links">
+      <a href="#value">平台价值</a>
+      <a href="#roles">服务者 · 客户</a>
+      <a href="#features">核心能力</a>
+      <a href="#how">如何运转</a>
+    </nav>
+    <a class="nav-cta" href="#cta">立即入驻</a>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="wrap hero-inner">
+    <div>
+      <span class="eyebrow"><span class="dot"></span>家庭服务 · 灵活用工平台</span>
+      <h1 class="headline serif">让每一次<br/>到家服务，<br/><span class="accent">都值得托付。</span></h1>
+      <p class="lead">上上吉（Upupgood）连接需要家庭服务的客户与提供服务的零工，<br/>用名片、匹配、结算与口碑，撑起一份可持续的好生意。</p>
+      <div class="cta-row">
+        <a href="#cta" class="btn btn-primary">我是服务者，免费入驻 →</a>
+        <a href="#features" class="btn btn-ghost">我是客户，找服务</a>
+      </div>
+      <div class="stats">
+        <div class="stat"><div class="num">0门槛</div><div class="label">服务者入驻</div></div>
+        <div class="stat"><div class="num">T+1</div><div class="label">安全结算</div></div>
+        <div class="stat"><div class="num">VIP</div><div class="label">吉力推荐增值</div></div>
+        <div class="stat"><div class="num">7×24</div><div class="label">AI 智能客服</div></div>
+      </div>
+    </div>
+
+    <div class="hero-card">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px">
+        <div style="font-weight:700">附近推荐</div>
+        <div style="font-size:12px;color:var(--text-3)">基于社区围栏</div>
+      </div>
+      <div class="card-row">
+        <div class="avatar a2">王</div>
+        <div>
+          <div class="name">王阿姨 <span class="vip">VIP</span></div>
+          <div class="skill">深度保洁 · 8年经验 · ★4.9</div>
+        </div>
+        <div class="price">¥168/次</div>
+      </div>
+      <div class="card-row">
+        <div class="avatar a1">李</div>
+        <div>
+          <div class="name">李师傅</div>
+          <div class="skill">家电维修 · 持证 · ★4.8</div>
+        </div>
+        <div class="price">¥80起</div>
+      </div>
+      <div class="card-row">
+        <div class="avatar a3">陈</div>
+        <div>
+          <div class="name">陈姐</div>
+          <div class="skill">月嫂 · 高级证 · ★5.0</div>
+        </div>
+        <div class="price">¥12k/月</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- VALUE -->
+<section id="value" style="padding-top:40px">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="sec-tag">Why Upupgood</div>
+      <h2 class="sec-title serif">不止撮合，更是服务者的事业伙伴</h2>
+      <p class="sec-sub">从入驻、获客、接单到结算与口碑沉淀，上上吉提供家政零工真正需要的全链路工具。</p>
+    </div>
+
+    <div class="features" id="features">
+      <div class="feature"><div class="f-icon">名</div><h4>服务者名片</h4><p>简介、技能、证书、经历、案例一站展示，专业感由内而外。</p></div>
+      <div class="feature"><div class="f-icon">配</div><h4>智能匹配</h4><p>基于位置、技能、口碑的推荐算法，把对的需求送到对的人。</p></div>
+      <div class="feature"><div class="f-icon">单</div><h4>交易全链路</h4><p>下单、支付、服务、评价、结算闭环,平台担保,双方安心。</p></div>
+      <div class="feature"><div class="f-icon">推</div><h4>推广裂变</h4><p>邀请有奖、推广码、海报工具,让口碑自动滚动起来。</p></div>
+      <div class="feature"><div class="f-icon">VIP</div><h4>吉力推荐</h4><p>付费增值,获得更多曝光与竞争力分析,把生意做得更好。</p></div>
+      <div class="feature"><div class="f-icon">值</div><h4>吉力值积分</h4><p>活动奖励、积分兑换,让每一次活跃都有回报。</p></div>
+      <div class="feature"><div class="f-icon">券</div><h4>优惠券体系</h4><p>立减、满减、折扣,运营人员的精细化营销利器。</p></div>
+      <div class="feature"><div class="f-icon">聊</div><h4>即时通讯</h4><p>客户与服务者直接沟通,需求不再隔层猜。</p></div>
+      <div class="feature"><div class="f-icon">AI</div><h4>AI 智能体</h4><p>智能客服与 AI 助手,答疑、推荐、辅助决策。</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ROLES -->
+<section id="roles" style="background:#fff">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="sec-tag">For Everyone</div>
+      <h2 class="sec-title serif">两端共生 · 一份信任</h2>
+      <p class="sec-sub">服务者收获稳定订单与品牌沉淀；客户获得透明、可靠、有保障的家庭服务。</p>
+    </div>
+    <div class="roles">
+      <div class="role-card role-servant">
+        <div class="role-icon">服</div>
+        <h3>服务者 · Servant</h3>
+        <p class="role-sub">把手艺变成事业,把回头客变成长期资产</p>
+        <ul class="role-list">
+          <li>零门槛入驻,5 分钟开张</li>
+          <li>专业名片 + 案例展示,客户一看就懂</li>
+          <li>智能匹配附近订单,不再守着电话等</li>
+          <li>余额、提现、转账一键完成</li>
+          <li>VIP 推荐位 + 竞争力分析,让生意更上一层</li>
+        </ul>
+      </div>
+      <div class="role-card role-customer">
+        <div class="role-icon">客</div>
+        <h3>客户 · Customer</h3>
+        <p class="role-sub">找到那个让你放心把家交出去的人</p>
+        <ul class="role-list">
+          <li>按位置、技能、评分找最合适的服务者</li>
+          <li>透明价格,先看名片再下单</li>
+          <li>在线沟通,需求一次说清</li>
+          <li>平台担保支付,服务后再确认</li>
+          <li>评价沉淀真实口碑,好服务被看见</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW -->
+<section id="how">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="sec-tag">How it works</div>
+      <h2 class="sec-title serif">四步,把好服务连起来</h2>
+    </div>
+    <div class="process">
+      <div class="step"><div class="num">01</div><h5>入驻 / 浏览</h5><p>服务者完善名片;客户按需查找。</p></div>
+      <div class="step"><div class="num">02</div><h5>沟通 / 下单</h5><p>在线聊清需求,一键下单付款。</p></div>
+      <div class="step"><div class="num">03</div><h5>到家服务</h5><p>按约履约,过程平台可追溯。</p></div>
+      <div class="step"><div class="num">04</div><h5>评价 / 结算</h5><p>客户评价后,T+1 安全到账。</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section id="cta" style="padding-top:0">
+  <div class="cta-banner">
+    <div style="position:relative;z-index:1">
+      <h3>从今天起,把你的手艺,交给上上吉。</h3>
+      <p>免费入驻 · 智能获客 · 安全结算 · 长期陪跑</p>
+    </div>
+    <a href="#" class="btn btn-primary" style="position:relative;z-index:1">立即免费入驻 →</a>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap foot">
+    <div>
+      <div class="logo" style="margin-bottom:8px"><span class="logo-mark">吉</span><span>上上吉 Upupgood</span></div>
+      <div>© 2026 Upupgood Platform · 让到家服务更值得托付</div>
+    </div>
+    <div style="display:flex;gap:28px">
+      <a href="#value">平台价值</a>
+      <a href="#roles">两端共生</a>
+      <a href="#features">核心能力</a>
+      <a href="#how">如何运转</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
