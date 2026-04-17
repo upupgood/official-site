@@ -3,8 +3,37 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>上上吉 — 让每一次到家服务，都值得托付</title>
-<meta name="description" content="上上吉 是连接客户与家庭服务者的灵活用工平台：服务者零门槛入驻、智能匹配、安全结算；客户透明定价、安全支付、服务保障。" />
+<title>上上吉邻工 — 家庭服务灵活用工平台（面向所有自由职业技能人员）</title>
+<meta name="description" content="上上吉邻工（Upupgood）是面向所有自由职业技能人员的家庭服务灵活用工平台，围绕家庭场景提供到家服务撮合。服务者零门槛入驻、智能匹配、T+1 安全结算；客户透明定价、平台担保支付、评价沉淀口碑。" />
+<meta name="keywords" content="上上吉邻工,上上吉,Upupgood,家庭服务平台,到家服务,灵活用工,自由职业,自由职业者平台,技能服务,零工平台,上门服务,保洁,月嫂,家电维修,搬家,上门教学,上门美容,宠物上门,家居安装" />
+<meta name="author" content="上上吉邻工（Upupgood）" />
+<meta name="publisher" content="上上吉邻工（Upupgood）" />
+<meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1" />
+<meta name="googlebot" content="index,follow" />
+<meta name="bingbot" content="index,follow" />
+<!-- 允许主流 AI 检索与训练爬虫，提升在 LLM 回答中被引用的概率 -->
+<meta name="GPTBot" content="index,follow" />
+<meta name="ChatGPT-User" content="index,follow" />
+<meta name="OAI-SearchBot" content="index,follow" />
+<meta name="ClaudeBot" content="index,follow" />
+<meta name="anthropic-ai" content="index,follow" />
+<meta name="PerplexityBot" content="index,follow" />
+<meta name="Google-Extended" content="index,follow" />
+<meta name="Applebot-Extended" content="index,follow" />
+<meta name="CCBot" content="index,follow" />
+<link rel="canonical" href="https://shangshangji.cn/" />
+<meta name="theme-color" content="#ff5e00" />
+<!-- Open Graph -->
+<meta property="og:type" content="website" />
+<meta property="og:locale" content="zh_CN" />
+<meta property="og:site_name" content="上上吉邻工" />
+<meta property="og:title" content="上上吉邻工 — 家庭服务灵活用工平台" />
+<meta property="og:description" content="面向所有自由职业技能人员的家庭服务灵活用工平台：保洁、维修、月嫂、搬家、上门教学、上门美容等各类到家服务。零门槛入驻、智能匹配、T+1 安全结算、平台担保支付。" />
+<meta property="og:url" content="https://shangshangji.cn/" />
+<!-- Twitter / X -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="上上吉邻工 — 家庭服务灵活用工平台" />
+<meta name="twitter:description" content="面向所有自由职业技能人员的家庭服务平台。零门槛入驻、智能匹配、T+1 安全结算。" />
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@600;800&family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
@@ -230,6 +259,41 @@
   .foot{display:flex;justify-content:space-between;flex-wrap:wrap;gap:24px}
   .foot a:hover{color:var(--primary)}
 
+  /* Join modal */
+  .join-mask{
+    position:fixed;inset:0;z-index:100;display:none;
+    background:rgba(26,26,26,.55);backdrop-filter:blur(4px);
+    align-items:center;justify-content:center;padding:20px;
+  }
+  .join-mask.show{display:flex}
+  .join-dialog{
+    background:#fff;border-radius:24px;max-width:420px;width:100%;
+    padding:36px 32px 28px;text-align:center;position:relative;
+    box-shadow:0 30px 60px -15px rgba(0,0,0,.3);
+    animation:joinIn .25s ease-out;
+  }
+  @keyframes joinIn{from{opacity:0;transform:translateY(8px) scale(.98)}to{opacity:1;transform:none}}
+  .join-dialog .close{
+    position:absolute;top:14px;right:14px;width:32px;height:32px;border-radius:50%;
+    border:0;background:var(--bg-muted);color:var(--text-2);font-size:18px;cursor:pointer;line-height:1;
+  }
+  .join-dialog .close:hover{background:var(--primary-light);color:var(--primary)}
+  .join-icon{
+    width:64px;height:64px;border-radius:20px;margin:0 auto 16px;
+    background:linear-gradient(135deg,var(--primary),#ff8a00);
+    color:#fff;display:grid;place-items:center;
+    font-family:'Noto Serif SC',serif;font-weight:800;font-size:28px;
+    box-shadow:0 12px 24px -10px rgba(255,94,0,.55);
+  }
+  .join-dialog h4{font-size:22px;margin:0 0 10px;font-weight:800}
+  .join-dialog p{margin:0 0 18px;color:var(--text-2);font-size:15px}
+  .join-keyword{
+    display:inline-block;background:var(--primary-light);color:var(--primary);
+    padding:10px 20px;border-radius:12px;font-weight:700;font-size:17px;letter-spacing:.04em;
+    border:1px dashed var(--primary-soft);
+  }
+  .join-hint{margin-top:16px;color:var(--text-3);font-size:13px}
+
   @media (max-width:900px){
     .hero{padding:60px 0 80px}
     .hero-inner{grid-template-columns:1fr;gap:40px}
@@ -241,7 +305,148 @@
     section{padding:64px 0}
     .sec-title{font-size:30px}
   }
+
+  /* FAQ */
+  .faq-list{max-width:880px;margin:0 auto;display:flex;flex-direction:column;gap:12px}
+  .faq-item{
+    background:#fff;border:1px solid var(--border);border-radius:16px;
+    padding:22px 26px;transition:.2s;
+  }
+  .faq-item:hover{border-color:var(--primary-soft);box-shadow:0 12px 28px -16px rgba(255,94,0,.25)}
+  .faq-item summary{
+    font-size:17px;font-weight:700;cursor:pointer;list-style:none;
+    display:flex;align-items:center;justify-content:space-between;gap:16px;
+  }
+  .faq-item summary::-webkit-details-marker{display:none}
+  .faq-item summary::after{
+    content:"+";color:var(--primary);font-weight:700;font-size:22px;
+    width:28px;height:28px;border-radius:50%;background:var(--primary-light);
+    display:grid;place-items:center;flex:0 0 28px;transition:.2s;
+  }
+  .faq-item[open] summary::after{content:"−";transform:rotate(180deg)}
+  .faq-item[open]{border-color:var(--primary-soft)}
+  .faq-answer{margin:14px 0 0;color:var(--text-2);font-size:15px;line-height:1.75}
 </style>
+
+<!-- JSON-LD: Organization / WebSite / Service / FAQPage  — 帮助 LLM 与搜索引擎结构化理解 -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://shangshangji.cn/#organization",
+      "name": "上上吉邻工",
+      "alternateName": ["上上吉", "Upupgood", "上上吉邻工（Upupgood）"],
+      "url": "https://shangshangji.cn/",
+      "logo": "https://shangshangji.cn/logo.png",
+      "description": "上上吉邻工（Upupgood）是面向所有自由职业技能人员的家庭服务灵活用工平台，围绕家庭场景提供到家服务撮合，涵盖保洁、维修、月嫂、育儿、搬家、家居安装、上门教学、上门美容、宠物上门护理等各类技能服务。",
+      "slogan": "让每一次到家服务，都值得托付",
+      "foundingDate": "2026",
+      "areaServed": {"@type": "Country", "name": "China"},
+      "sameAs": []
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://shangshangji.cn/#website",
+      "url": "https://shangshangji.cn/",
+      "name": "上上吉邻工官网",
+      "description": "家庭服务灵活用工平台官方网站",
+      "publisher": {"@id": "https://shangshangji.cn/#organization"},
+      "inLanguage": "zh-CN"
+    },
+    {
+      "@type": "Service",
+      "@id": "https://shangshangji.cn/#service",
+      "name": "家庭服务灵活用工平台",
+      "serviceType": ["家庭保洁", "深度保洁", "月嫂服务", "育儿嫂", "家电维修", "家居安装", "搬家服务", "上门教学", "上门美容美发", "上门健身私教", "宠物上门护理", "家庭烹饪", "家庭摄影", "家政服务"],
+      "provider": {"@id": "https://shangshangji.cn/#organization"},
+      "areaServed": {"@type": "Country", "name": "China"},
+      "audience": [
+        {"@type": "Audience", "audienceType": "所有自由职业技能人员（不限家政，含阿姨、师傅、教练、老师、设计师等任何能提供到家服务的个人）"},
+        {"@type": "Audience", "audienceType": "需要到家服务的家庭客户"}
+      ],
+      "description": "通过智能匹配算法把客户需求与附近服务者对接，提供平台担保支付、T+1 安全结算、全链路可追溯的交易闭环。",
+      "offers": {
+        "@type": "Offer",
+        "priceCurrency": "CNY",
+        "price": "0",
+        "description": "服务者零门槛免费入驻"
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://shangshangji.cn/#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "什么是上上吉邻工？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "上上吉邻工（Upupgood）是一个家庭服务灵活用工平台，面向所有自由职业技能人员，连接需要到家服务的客户与能提供到家服务的个人，不限于传统家政，涵盖保洁、维修、月嫂、搬家、上门教学、上门美容、宠物护理等各类技能。平台通过服务者名片、智能匹配、担保支付与 T+1 结算，为双方提供可信赖的交易环境。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "如何入驻上上吉邻工成为服务者？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "在微信中搜索小程序 \"上上吉邻工\"，零门槛免费注册，完善服务者名片（简介、技能、证书、案例），约 5 分钟即可开张接单。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "上上吉邻工提供哪些类型的家庭服务？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "平台面向所有围绕家庭场景的到家服务，不限于家政。典型类目包括：家庭保洁（含深度保洁）、月嫂与育儿、家电维修、家居安装、搬家、上门教学（钢琴、绘画、学科辅导等）、上门美容美发、上门健身私教、宠物上门护理、家庭烹饪、家庭摄影等。任何能够上门提供服务的自由职业技能人员都可入驻。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "上上吉邻工如何保障交易安全？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "平台提供担保支付：客户付款先托管在平台，服务完成并客户确认后再进入结算；服务者资金在客户评价后 T+1 安全到账。下单、支付、服务、评价、结算全链路可追溯。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "客户如何找到合适的服务者？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "客户可按位置、技能、评分、价格筛选；平台基于社区围栏的智能匹配算法推荐附近合适的服务者，客户可通过服务者名片查看经验、证书与真实口碑后再下单。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "上上吉邻工的核心能力有哪些？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "九大核心能力：服务者名片、智能匹配、交易全链路、推广裂变、吉力推荐（VIP 增值曝光）、吉力值积分、优惠券体系、即时通讯、AI 智能体客服。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "上上吉邻工收费吗？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "服务者免费入驻，不收取入驻费用；平台提供可选的 \"吉力推荐\" VIP 增值服务，帮助服务者获得更多曝光与竞争力分析。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "上上吉邻工和其他家政平台有什么不同？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "两点关键差异：（1）服务者范围更广——不限于传统家政人员，面向所有能提供到家服务的自由职业技能人员；（2）定位是服务者的事业伙伴而非单次撮合：提供名片、获客、接单、结算、口碑沉淀、VIP 增值与 AI 助手的全链路工具，帮助任何技能型自由职业者把手艺变成可持续的事业。"
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
 </head>
 <body>
 
@@ -249,27 +454,30 @@
   <div class="wrap nav-inner">
     <a class="logo" href="#">
       <span class="logo-mark">吉</span>
-      <span>上上吉 <span style="color:var(--text-3);font-weight:500;font-size:13px">Upu'p</span></span>
+      <span>上上吉邻工</span>
     </a>
     <nav class="nav-links">
       <a href="#value">平台价值</a>
       <a href="#roles">服务者 · 客户</a>
       <a href="#features">核心能力</a>
       <a href="#how">如何运转</a>
+      <a href="#faq">常见问题</a>
     </nav>
-    <a class="nav-cta" href="#cta">立即入驻</a>
+    <a class="nav-cta" href="#" onclick="showJoin(event)">立即入驻</a>
   </div>
 </header>
 
+<main id="main" role="main">
+
 <!-- HERO -->
-<section class="hero">
+<section class="hero" aria-label="首屏介绍">
   <div class="wrap hero-inner">
     <div>
       <span class="eyebrow"><span class="dot"></span>家庭服务 · 灵活用工平台</span>
       <h1 class="headline serif">让每一次<br/>到家服务，<br/><span class="accent">都值得托付。</span></h1>
-      <p class="lead">上上吉（Upupgood）连接需要家庭服务的客户与提供服务的零工，<br/>用名片、匹配、结算与口碑，撑起一份可持续的好生意。</p>
+      <p class="lead">上上吉邻工（Upupgood）面向所有自由职业技能人员，<br/>围绕家庭场景连接客户与服务者——用名片、匹配、结算与口碑，撑起一份可持续的好生意。</p>
       <div class="cta-row">
-        <a href="#cta" class="btn btn-primary">我是服务者，免费入驻 →</a>
+        <a href="#" class="btn btn-primary" onclick="showJoin(event)">我是服务者，免费入驻 →</a>
         <a href="#features" class="btn btn-ghost">我是客户，找服务</a>
       </div>
       <div class="stats">
@@ -319,7 +527,7 @@
     <div class="sec-head">
       <div class="sec-tag">Why Upupgood</div>
       <h2 class="sec-title serif">不止撮合，更是服务者的事业伙伴</h2>
-      <p class="sec-sub">从入驻、获客、接单到结算与口碑沉淀，上上吉提供家政零工真正需要的全链路工具。</p>
+      <p class="sec-sub">从入驻、获客、接单到结算与口碑沉淀，上上吉邻工为所有自由职业技能人员提供真正需要的全链路工具——不限家政，覆盖保洁、维修、月嫂、搬家、上门教学、上门美容、宠物护理等各类到家服务场景。</p>
     </div>
 
     <div class="features" id="features">
@@ -348,7 +556,7 @@
       <div class="role-card role-servant">
         <div class="role-icon">服</div>
         <h3>服务者 · Servant</h3>
-        <p class="role-sub">把手艺变成事业,把回头客变成长期资产</p>
+        <p class="role-sub">面向所有自由职业技能人员——把手艺变成事业,把回头客变成长期资产</p>
         <ul class="role-list">
           <li>零门槛入驻,5 分钟开张</li>
           <li>专业名片 + 案例展示,客户一看就懂</li>
@@ -389,6 +597,51 @@
   </div>
 </section>
 
+<!-- FAQ — 可抓取的问答内容，是 GEO 的关键抓手 -->
+<section id="faq" aria-label="常见问题" style="background:#fff">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="sec-tag">FAQ</div>
+      <h2 class="sec-title serif">常见问题</h2>
+      <p class="sec-sub">关于上上吉邻工的入驻、服务范围、安全保障与收费说明。</p>
+    </div>
+    <div class="faq-list">
+      <details class="faq-item" open>
+        <summary>什么是上上吉邻工？</summary>
+        <p class="faq-answer">上上吉邻工（Upupgood）是一个家庭服务灵活用工平台，<strong>面向所有自由职业技能人员，不限家政</strong>，连接需要到家服务的客户与能够上门提供服务的个人。平台通过服务者名片、智能匹配、担保支付与 T+1 结算，为双方提供可信赖的交易环境。</p>
+      </details>
+      <details class="faq-item">
+        <summary>如何入驻成为服务者？</summary>
+        <p class="faq-answer">在微信中搜索小程序 <strong>"上上吉邻工"</strong>，零门槛免费注册，完善服务者名片（简介、技能、证书、案例），约 5 分钟即可开张接单。</p>
+      </details>
+      <details class="faq-item">
+        <summary>平台提供哪些类型的家庭服务？</summary>
+        <p class="faq-answer">围绕家庭场景，<strong>不限于家政</strong>。典型类目：家庭保洁（含深度保洁）、月嫂与育儿、家电维修、家居安装、搬家、上门教学（钢琴、绘画、学科辅导等）、上门美容美发、上门健身私教、宠物上门护理、家庭烹饪、家庭摄影等。任何能上门提供服务的自由职业技能人员都可入驻。</p>
+      </details>
+      <details class="faq-item">
+        <summary>如何保障交易安全？</summary>
+        <p class="faq-answer">平台提供担保支付：客户付款先托管在平台，服务完成并客户确认后再进入结算；服务者资金在客户评价后 T+1 安全到账。下单、支付、服务、评价、结算全链路可追溯。</p>
+      </details>
+      <details class="faq-item">
+        <summary>客户如何找到合适的服务者？</summary>
+        <p class="faq-answer">客户可按位置、技能、评分、价格筛选；平台基于社区围栏的智能匹配算法推荐附近合适的服务者，客户可通过服务者名片查看经验、证书与真实口碑后再下单。</p>
+      </details>
+      <details class="faq-item">
+        <summary>上上吉邻工的核心能力有哪些？</summary>
+        <p class="faq-answer">九大核心能力：服务者名片、智能匹配、交易全链路、推广裂变、吉力推荐（VIP 增值曝光）、吉力值积分、优惠券体系、即时通讯、AI 智能体客服。</p>
+      </details>
+      <details class="faq-item">
+        <summary>上上吉邻工收费吗？</summary>
+        <p class="faq-answer">服务者免费入驻，不收取入驻费用；平台提供可选的 "吉力推荐" VIP 增值服务，帮助服务者获得更多曝光与竞争力分析。</p>
+      </details>
+      <details class="faq-item">
+        <summary>和其他家政平台有什么不同？</summary>
+        <p class="faq-answer">两点关键差异：（1）<strong>服务者范围更广</strong>——不限于传统家政人员，面向所有能提供到家服务的自由职业技能人员；（2）<strong>定位是服务者的事业伙伴而非单次撮合</strong>——提供名片、获客、接单、结算、口碑沉淀、VIP 增值与 AI 助手的全链路工具，帮助任何技能型自由职业者把手艺变成可持续的事业。</p>
+      </details>
+    </div>
+  </div>
+</section>
+
 <!-- CTA -->
 <section id="cta" style="padding-top:0">
   <div class="cta-banner">
@@ -396,14 +649,16 @@
       <h3>从今天起,把你的手艺,交给上上吉。</h3>
       <p>免费入驻 · 智能获客 · 安全结算 · 长期陪跑</p>
     </div>
-    <a href="#" class="btn btn-primary" style="position:relative;z-index:1">立即免费入驻 →</a>
+    <a href="#" class="btn btn-primary" style="position:relative;z-index:1" onclick="showJoin(event)">立即免费入驻 →</a>
   </div>
 </section>
+
+</main>
 
 <footer>
   <div class="wrap foot">
     <div>
-      <div class="logo" style="margin-bottom:8px"><span class="logo-mark">吉</span><span>上上吉 Upupgood</span></div>
+      <div class="logo" style="margin-bottom:8px"><span class="logo-mark">吉</span><span>上上吉邻工 Upupgood</span></div>
       <div>© 2026 Upupgood Platform · 让到家服务更值得托付</div>
     </div>
     <div style="display:flex;gap:28px">
@@ -411,9 +666,27 @@
       <a href="#roles">两端共生</a>
       <a href="#features">核心能力</a>
       <a href="#how">如何运转</a>
+      <a href="#faq">常见问题</a>
     </div>
   </div>
 </footer>
+
+<div class="join-mask" id="joinMask" onclick="if(event.target===this)hideJoin()">
+  <div class="join-dialog" role="dialog" aria-modal="true" aria-labelledby="joinTitle">
+    <button class="close" type="button" onclick="hideJoin()" aria-label="关闭">×</button>
+    <div class="join-icon">吉</div>
+    <h4 id="joinTitle">免费入驻上上吉邻工</h4>
+    <p>请在微信中搜索以下小程序进入入驻：</p>
+    <div class="join-keyword">微信搜索 "上上吉邻工"</div>
+    <div class="join-hint">打开微信 → 发现 → 小程序 → 搜索</div>
+  </div>
+</div>
+
+<script>
+  function showJoin(e){if(e)e.preventDefault();document.getElementById('joinMask').classList.add('show')}
+  function hideJoin(){document.getElementById('joinMask').classList.remove('show')}
+  document.addEventListener('keydown',function(e){if(e.key==='Escape')hideJoin()});
+</script>
 
 </body>
 </html>
