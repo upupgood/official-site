@@ -299,12 +299,55 @@
     .hero-inner{grid-template-columns:1fr;gap:40px}
     h1.headline{font-size:42px}
     .roles,.features,.process{grid-template-columns:1fr;gap:20px;padding:32px}
+    .skill-grid{grid-template-columns:1fr;gap:16px}
     .nav-links{display:none}
     .stats{flex-wrap:wrap;gap:24px}
     .cta-banner{flex-direction:column;text-align:center;padding:40px 28px}
     section{padding:64px 0}
     .sec-title{font-size:30px}
   }
+
+  /* Agent Skill */
+  .skill-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;align-items:stretch}
+  .skill-card{
+    background:#fff;border:1px solid var(--border);border-radius:20px;padding:32px 28px;
+    position:relative;transition:.25s;display:flex;flex-direction:column;
+  }
+  .skill-card:hover{transform:translateY(-4px);border-color:var(--primary-soft);box-shadow:0 18px 40px -20px rgba(255,94,0,.25)}
+  .skill-badge{
+    position:absolute;top:20px;right:20px;
+    width:34px;height:34px;border-radius:50%;
+    background:linear-gradient(135deg,var(--primary),#ff8a00);color:#fff;
+    display:grid;place-items:center;font-family:'Noto Serif SC',serif;font-weight:800;font-size:15px;
+    box-shadow:0 6px 14px -4px rgba(255,94,0,.45);
+  }
+  .skill-card h3{font-size:20px;margin:0 0 12px;font-weight:800;padding-right:48px}
+  .skill-card p{color:var(--text-2);margin:0 0 14px;font-size:15px;line-height:1.75}
+  .skill-card p code,.skill-inline{background:var(--bg-muted);padding:2px 7px;border-radius:5px;font-size:13px;color:var(--primary);font-family:'SF Mono','Menlo',monospace}
+  .skill-code{
+    background:#1a1a1a;color:#f4c385;border-radius:12px;padding:16px;margin:0 0 14px;
+    font-family:'SF Mono','Menlo','Consolas',monospace;font-size:12.5px;line-height:1.65;overflow-x:auto;
+    white-space:pre;
+  }
+  .skill-code code{color:inherit;background:none;padding:0;font-family:inherit;font-size:inherit}
+  .skill-links{display:flex;gap:12px;align-items:center;font-size:14px;flex-wrap:wrap;margin-top:auto}
+  .skill-links .btn{padding:9px 18px;font-size:14px}
+  .skill-links a:not(.btn){color:var(--primary);font-weight:600}
+  .skill-links a:not(.btn):hover{text-decoration:underline}
+  .skill-examples{list-style:none;padding:0;margin:0}
+  .skill-examples li{
+    padding:10px 14px;margin-bottom:10px;
+    background:var(--primary-light);color:var(--text);font-size:14px;
+    border-radius:10px;border-left:3px solid var(--primary);
+  }
+  .skill-examples li:last-child{margin-bottom:0}
+  .skill-note{
+    margin:32px auto 0;max-width:880px;
+    background:linear-gradient(135deg,var(--envelope-2) 0%,var(--envelope-1) 100%);
+    border:1px solid var(--border-warm);border-radius:16px;padding:20px 24px;
+    color:var(--brown);font-size:14px;line-height:1.7;
+  }
+  .skill-note strong{color:var(--brown-deep)}
 
   /* FAQ */
   .faq-list{max-width:880px;margin:0 auto;display:flex;flex-direction:column;gap:12px}
@@ -370,8 +413,7 @@
       "offers": {
         "@type": "Offer",
         "priceCurrency": "CNY",
-        "price": "0",
-        "description": "服务者零门槛免费入驻"
+        "description": "服务者零门槛免费入驻；平台按每笔成交收取基本的软件服务费，具体费率与计算方式以微信小程序 \"上上吉邻工\" 内公示说明为准。"
       }
     },
     {
@@ -431,7 +473,23 @@
           "name": "上上吉邻工收费吗？",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "服务者免费入驻，不收取入驻费用；平台提供可选的 \"吉力推荐\" VIP 增值服务，帮助服务者获得更多曝光与竞争力分析。"
+            "text": "服务者零门槛免费入驻，不收取入驻费用。平台按每笔成交收取基本的软件服务费，用于覆盖支付通道、系统运营、担保结算、风控与客服等成本；具体费率、计算方式与结算口径以微信小程序 \"上上吉邻工\" 内公示说明为准。此外平台提供可选的 \"吉力推荐\" VIP 增值服务，帮助服务者获得更多曝光与竞争力分析。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "如何让 AI 助手（Claude）帮我在上上吉邻工上搜索和下单？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "上上吉邻工提供官方双端 Agent Skill（名称：upupgood），同时支持客户端（搜索、下单、管理订单）和服务者端（接单、完成服务、报名需求）。在 Claude Code 中安装：只需下载 3 个文件到 ~/.claude/skills/upupgood/——SKILL.md 入口 + references/SKILL-CUSTOMER.md + references/SKILL-SERVANT.md；35 个 API 详情按需从 https://shangshangji.cn/references/api/<api-file-name> 通过 WebFetch 自动获取，无需预下载。安装后用自然语言对话即可，例如客户端说 \"帮我找附近的保洁服务\"、\"取消订单 12345\"；服务者端说 \"同意接单 12345\"、\"订单 12345 标记完成\"。首次使用 AI 会引导微信扫码登录，Token 保存在 ~/.upupgood/.token 中。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "上上吉邻工的 Agent Skill 支持哪些操作？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "双端共 33+ 个 API 操作。客户端 16 个：服务类型查询、搜索服务者、产品详情、发布/取消服务需求、预约下单、查询/修改/取消/验收订单、生成微信小程序下单与订单查看链接、订单数量统计。服务者端 17 个：订单列表/详情/最新/数量、接单/拒绝、完成服务、调整订单金额、专拍订单提交/改价/撤回、查询上笔专拍名称、AI 匹配分析、报名需求/取消报名、匹配信息查询。全部使用基于微信扫码的 JWT Bearer Token 认证，双端共用同一登录态。"
           }
         },
         {
@@ -461,6 +519,7 @@
       <a href="#roles">服务者 · 客户</a>
       <a href="#features">核心能力</a>
       <a href="#how">如何运转</a>
+      <a href="#skill">AI Skill</a>
       <a href="#faq">常见问题</a>
     </nav>
     <a class="nav-cta" href="#" onclick="showJoin(event)">立即入驻</a>
@@ -597,6 +656,82 @@
   </div>
 </section>
 
+<!-- AGENT SKILL -->
+<section id="skill" aria-label="Agent Skill" style="background:#fff">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="sec-tag">Agent Skill</div>
+      <h2 class="sec-title serif">让 AI 助手帮你下单</h2>
+      <p class="sec-sub">上上吉邻工提供官方 <strong>双端 Agent Skill</strong>（<code class="skill-inline">upupgood</code>）——<strong>客户端</strong>和<strong>服务者端</strong>共用同一 Skill，AI 根据对话场景自动加载对应的 API 参考。在 Claude Code、Claude 桌面应用等支持 Agent Skill 的 AI 工具中安装后，你可以用自然语言让 AI 代替你完成搜索下单、接单履约、订单管理等全链路操作。</p>
+    </div>
+
+    <div class="skill-grid">
+      <div class="skill-card">
+        <div class="skill-badge">1</div>
+        <h3>下载 &amp; 安装 SKILL</h3>
+        <p>以 <strong>Claude Code</strong> 为例，只需下载 3 个文件——入口与双端索引：</p>
+        <pre class="skill-code"><code>SKILL_DIR=~/.claude/skills/upupgood
+mkdir -p "$SKILL_DIR/references"
+curl -fsSL https://shangshangji.cn/SKILL.md \
+  -o "$SKILL_DIR/SKILL.md"
+curl -fsSL https://shangshangji.cn/references/SKILL-CUSTOMER.md \
+  -o "$SKILL_DIR/references/SKILL-CUSTOMER.md"
+curl -fsSL https://shangshangji.cn/references/SKILL-SERVANT.md \
+  -o "$SKILL_DIR/references/SKILL-SERVANT.md"</code></pre>
+        <p style="font-size:13px;color:var(--text-3)">35 个 API 详情文件 <strong>按需从官网获取</strong>——AI 在对话中需要某个 API 时，会自动 WebFetch <code>https://shangshangji.cn/references/api/&lt;api-file-name&gt;</code> 拉取定义，无需提前下载。</p>
+        <p style="font-size:13px;color:var(--text-3)">项目级安装：把 <code>$SKILL_DIR</code> 改为 <code>.claude/skills/upupgood</code>。</p>
+        <div class="skill-links">
+          <a href="/SKILL.md" target="_blank" rel="noopener">入口 SKILL.md</a>
+          <a href="/references/SKILL-CUSTOMER.md" target="_blank" rel="noopener">客户端</a>
+          <a href="/references/SKILL-SERVANT.md" target="_blank" rel="noopener">服务者端</a>
+        </div>
+      </div>
+
+      <div class="skill-card">
+        <div class="skill-badge">2</div>
+        <h3>微信扫码登录</h3>
+        <p>第一次使用时让 AI 帮你登录：AI 会自动调用 <code>/open/auth/third-login-request</code> 生成二维码，你用微信扫码授权，AI 再轮询 <code>/open/auth/third-login-status</code> 拿到 Token，<strong>安全保存在本地</strong>：</p>
+        <pre class="skill-code"><code>~/.upupgood/.token</code></pre>
+        <p style="font-size:13px;color:var(--text-3)">Token 有效期 14 天，过期后 AI 会提示你重新扫码。Token 不会显示在日志里，也不会被外发。</p>
+      </div>
+
+      <div class="skill-card">
+        <div class="skill-badge">3</div>
+        <h3>自然语言对话（双端）</h3>
+        <p>AI 根据你的表达自动判断身份，选择合适的 API 完成操作：</p>
+        <p style="font-size:13px;color:var(--text-3);margin-bottom:8px"><strong>客户视角：</strong></p>
+        <ul class="skill-examples">
+          <li>"帮我找附近的保洁服务"</li>
+          <li>"发一个下周日上午 10 点的深度保洁需求"</li>
+          <li>"查看我进行中的订单"</li>
+          <li>"订单 12345 服务已完成，帮我确认验收"</li>
+        </ul>
+        <p style="font-size:13px;color:var(--text-3);margin:14px 0 8px"><strong>服务者视角：</strong></p>
+        <ul class="skill-examples">
+          <li>"看看我今天有几单要接"</li>
+          <li>"同意接单 12345"</li>
+          <li>"拒掉订单 12345，理由是时间冲突"</li>
+          <li>"订单 12345 我已经做完了，标记完成"</li>
+          <li>"给客户报个 388 元的深度保洁专拍"</li>
+          <li>"帮我报名需求 678"</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="skill-note" style="background:linear-gradient(135deg,#e7f3ff 0%,#d0e8ff 100%);border-color:#a8d0f0;color:#1a3b5c;margin-bottom:16px">
+      <strong>推荐同时安装：高德地图 Skill</strong> — 上上吉邻工大量接口依赖经纬度（搜服务、发需求、下单等），配合高德 Skill 可让 AI 直接理解 "朝阳区家里附近" 这类自然表达，自动完成地址 ⇄ 坐标转换、POI 搜索、路线规划。<br>
+      安装地址：<a href="https://lbs.amap.com/api/cli/map-cli/install" target="_blank" rel="noopener" style="color:#1a3b5c;text-decoration:underline;font-weight:700">https://lbs.amap.com/api/cli/map-cli/install</a>
+    </div>
+
+    <div class="skill-note">
+      <strong>双端覆盖能力</strong>：<br>
+      · <strong>客户端</strong>（16 个 API）：服务类型查询、搜索服务者、产品详情、发布/取消需求、预约下单、查询/修改/取消/验收订单、生成小程序跳转链接等。<br>
+      · <strong>服务者端</strong>（17 个 API）：订单列表/详情/最新/数量、接单/拒绝、完成服务、调整金额、专拍提交/改价/撤回、报名需求/取消报名、AI 匹配分析等。<br>
+      AI 会根据用户身份自动加载 <a href="/references/SKILL-CUSTOMER.md" target="_blank" rel="noopener" style="color:var(--brown-deep);text-decoration:underline">客户端参考</a>或<a href="/references/SKILL-SERVANT.md" target="_blank" rel="noopener" style="color:var(--brown-deep);text-decoration:underline">服务者参考</a>；完整入口见 <a href="/SKILL.md" target="_blank" rel="noopener" style="color:var(--brown-deep);text-decoration:underline">SKILL.md</a>。
+    </div>
+  </div>
+</section>
+
 <!-- FAQ — 可抓取的问答内容，是 GEO 的关键抓手 -->
 <section id="faq" aria-label="常见问题" style="background:#fff">
   <div class="wrap">
@@ -632,7 +767,15 @@
       </details>
       <details class="faq-item">
         <summary>上上吉邻工收费吗？</summary>
-        <p class="faq-answer">服务者免费入驻，不收取入驻费用；平台提供可选的 "吉力推荐" VIP 增值服务，帮助服务者获得更多曝光与竞争力分析。</p>
+        <p class="faq-answer">服务者<strong>零门槛免费入驻</strong>，不收取入驻费用。平台按每笔成交收取<strong>基本的软件服务费</strong>，用于覆盖支付通道、系统运营、担保结算、风控与客服等成本——<strong>具体费率与计算方式以微信小程序 "上上吉邻工" 内公示说明为准</strong>。此外平台提供可选的 "吉力推荐" VIP 增值服务，帮助服务者获得更多曝光与竞争力分析。</p>
+      </details>
+      <details class="faq-item">
+        <summary>如何让 AI 助手（Claude）帮我下单？</summary>
+        <p class="faq-answer">上上吉邻工提供官方 Agent Skill，在 Claude Code 等支持 Skill 的 AI 工具中一键安装。详见 <a href="#skill" style="color:var(--primary);font-weight:600">AI Skill</a> 章节，或直接<a href="/SKILL.md" target="_blank" rel="noopener" style="color:var(--primary);font-weight:600">下载 SKILL.md</a>。</p>
+      </details>
+      <details class="faq-item">
+        <summary>Agent Skill 支持哪些操作？</summary>
+        <p class="faq-answer"><strong>双端共 33+ 个 API 操作</strong>。<br><strong>客户端（16 个）</strong>：服务发现、发布/取消需求、预约下单、查询/修改/取消/验收订单、生成小程序跳转链接、订单数量统计。<br><strong>服务者端（17 个）</strong>：订单列表/详情/最新/数量、接单/拒绝、完成服务、调整订单金额、专拍订单提交/改价/撤回、AI 匹配分析、报名需求/取消报名。<br>双端共用同一登录态，AI 根据对话场景自动加载对应文档。</p>
       </details>
       <details class="faq-item">
         <summary>和其他家政平台有什么不同？</summary>
@@ -666,6 +809,7 @@
       <a href="#roles">两端共生</a>
       <a href="#features">核心能力</a>
       <a href="#how">如何运转</a>
+      <a href="#skill">AI Skill</a>
       <a href="#faq">常见问题</a>
     </div>
   </div>
@@ -679,6 +823,7 @@
     <p>请在微信中搜索以下小程序进入入驻：</p>
     <div class="join-keyword">微信搜索 "上上吉邻工"</div>
     <div class="join-hint">打开微信 → 发现 → 小程序 → 搜索</div>
+    <div class="join-hint" style="margin-top:10px;padding-top:12px;border-top:1px dashed var(--border)">入驻免费。平台按成交收取基本软件服务费，费率以小程序内公示为准。</div>
   </div>
 </div>
 

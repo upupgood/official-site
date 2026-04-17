@@ -6,4 +6,64 @@
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
+  <url>
+    <loc>https://shangshangji.cn/SKILL.md</loc>
+    <lastmod>2026-04-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://shangshangji.cn/references/SKILL-CUSTOMER.md</loc>
+    <lastmod>2026-04-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://shangshangji.cn/references/SKILL-SERVANT.md</loc>
+    <lastmod>2026-04-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <!-- 认证 API -->
+  <url><loc>https://shangshangji.cn/references/api/auth-third-login-request.md</loc><lastmod>2026-04-17</lastmod><priority>0.5</priority></url>
+  <url><loc>https://shangshangji.cn/references/api/auth-third-login-status.md</loc><lastmod>2026-04-17</lastmod><priority>0.5</priority></url>
+  <!-- 服务发现（客户端） -->
+  <url><loc>https://shangshangji.cn/references/api/discovery-top-product-types.md</loc><lastmod>2026-04-17</lastmod><priority>0.5</priority></url>
+  <url><loc>https://shangshangji.cn/references/api/discovery-recommend-servant-list.md</loc><lastmod>2026-04-17</lastmod><priority>0.5</priority></url>
+  <url><loc>https://shangshangji.cn/references/api/serviceproduct-get.md</loc><lastmod>2026-04-17</lastmod><priority>0.5</priority></url>
+  <!-- 服务需求（客户端） -->
+  <url><loc>https://shangshangji.cn/references/api/servicerequirement-create.md</loc><lastmod>2026-04-17</lastmod><priority>0.5</priority></url>
+  <url><loc>https://shangshangji.cn/references/api/servicerequirement-list.md</loc><lastmod>2026-04-17</lastmod><priority>0.5</priority></url>
+  <url><loc>https://shangshangji.cn/references/api/servicerequirement-cancel.md</loc><lastmod>2026-04-17</lastmod><priority>0.5</priority></url>
+  <!-- 订单（客户端） -->
+  <url><loc>https://shangshangji.cn/references/api/serviceorder-appoint.md</loc><lastmod>2026-04-17</lastmod><priority>0.5</priority></url>
+  <url><loc>https://shangshangji.cn/references/api/serviceorder-wxacreateorderlink.md</loc><lastmod>2026-04-17</lastmod><priority>0.5</priority></url>
+  <url><loc>https://shangshangji.cn/references/api/serviceorder-list.md</loc><lastmod>2026-04-17</lastmod><priority>0.5</priority></url>
+  <url><loc>https://shangshangji.cn/references/api/serviceorder-get.md</loc><lastmod>2026-04-17</lastmod><priority>0.5</priority></url>
+  <url><loc>https://shangshangji.cn/references/api/serviceorder-wxagetorderlink.md</loc><lastmod>2026-04-17</lastmod><priority>0.5</priority></url>
+  <url><loc>https://shangshangji.cn/references/api/serviceorder-cancel.md</loc><lastmod>2026-04-17</lastmod><priority>0.5</priority></url>
+  <url><loc>https://shangshangji.cn/references/api/serviceorder-userconfirm.md</loc><lastmod>2026-04-17</lastmod><priority>0.5</priority></url>
+  <url><loc>https://shangshangji.cn/references/api/serviceorder-ordercounts.md</loc><lastmod>2026-04-17</lastmod><priority>0.5</priority></url>
+  <url><loc>https://shangshangji.cn/references/api/serviceorder-changeservicetime.md</loc><lastmod>2026-04-17</lastmod><priority>0.5</priority></url>
+  <url><loc>https://shangshangji.cn/references/api/serviceorder-updatecontact.md</loc><lastmod>2026-04-17</lastmod><priority>0.5</priority></url>
+  <!-- 订单（服务者端） -->
+  <url><loc>https://shangshangji.cn/references/api/serviceorder-servantlist.md</loc><lastmod>2026-04-17</lastmod><priority>0.5</priority></url>
+  <url><loc>https://shangshangji.cn/references/api/serviceorder-servantget.md</loc><lastmod>2026-04-17</lastmod><priority>0.5</priority></url>
+  <url><loc>https://shangshangji.cn/references/api/serviceorder-servantlatest.md</loc><lastmod>2026-04-17</lastmod><priority>0.5</priority></url>
+  <url><loc>https://shangshangji.cn/references/api/serviceorder-servantordercount.md</loc><lastmod>2026-04-17</lastmod><priority>0.5</priority></url>
+  <url><loc>https://shangshangji.cn/references/api/serviceorder-servantordercounts.md</loc><lastmod>2026-04-17</lastmod><priority>0.5</priority></url>
+  <url><loc>https://shangshangji.cn/references/api/serviceorder-servantpayinfo.md</loc><lastmod>2026-04-17</lastmod><priority>0.5</priority></url>
+  <url><loc>https://shangshangji.cn/references/api/serviceorder-servantaccept.md</loc><lastmod>2026-04-17</lastmod><priority>0.5</priority></url>
+  <url><loc>https://shangshangji.cn/references/api/serviceorder-servantfinish.md</loc><lastmod>2026-04-17</lastmod><priority>0.5</priority></url>
+  <url><loc>https://shangshangji.cn/references/api/serviceorder-servantadjustamount.md</loc><lastmod>2026-04-17</lastmod><priority>0.5</priority></url>
+  <!-- 专拍（服务者端） -->
+  <url><loc>https://shangshangji.cn/references/api/serviceorder-custom_appoint_submit.md</loc><lastmod>2026-04-17</lastmod><priority>0.5</priority></url>
+  <url><loc>https://shangshangji.cn/references/api/serviceorder-custom_appoint_update_price.md</loc><lastmod>2026-04-17</lastmod><priority>0.5</priority></url>
+  <url><loc>https://shangshangji.cn/references/api/serviceorder-custom_appoint_cancel.md</loc><lastmod>2026-04-17</lastmod><priority>0.5</priority></url>
+  <url><loc>https://shangshangji.cn/references/api/serviceorder-last_custom_name.md</loc><lastmod>2026-04-17</lastmod><priority>0.5</priority></url>
+  <!-- 需求匹配（服务者端） -->
+  <url><loc>https://shangshangji.cn/references/api/servicematch-ai_analysis.md</loc><lastmod>2026-04-17</lastmod><priority>0.5</priority></url>
+  <url><loc>https://shangshangji.cn/references/api/servicematch-apply.md</loc><lastmod>2026-04-17</lastmod><priority>0.5</priority></url>
+  <url><loc>https://shangshangji.cn/references/api/servicematch-cancel.md</loc><lastmod>2026-04-17</lastmod><priority>0.5</priority></url>
+  <url><loc>https://shangshangji.cn/references/api/servicematch-getmatch.md</loc><lastmod>2026-04-17</lastmod><priority>0.5</priority></url>
 </urlset>

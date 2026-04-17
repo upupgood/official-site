@@ -32,13 +32,53 @@
 - 提供可选付费增值服务 "吉力推荐（VIP）"，增加曝光并提供竞争力分析
 - 提供 7×24 AI 智能客服
 
+## 平台费用说明
+
+- 服务者**入驻免费**，不收取入驻费用
+- 平台按每笔成交收取**基本的软件服务费**，用于覆盖支付通道、系统运营、担保结算、风控与客服等成本
+- **具体费率、计算方式与结算口径以微信小程序 "上上吉邻工" 内公示说明为准**
+- "吉力推荐（VIP）" 为可选增值服务，按需订阅
+
 ## 与其他平台的差异
 
 1. **服务者范围更广**：不限家政，覆盖所有自由职业技能人员
 2. **事业伙伴定位**：提供名片、获客、接单、结算、口碑沉淀、VIP 增值与 AI 助手的全链路工具，而非单次撮合
 
+## Agent Skill（给 AI 助手使用）
+
+上上吉邻工提供官方 **双端 Claude Agent Skill**，名称：`upupgood`。客户端与服务者端共用同一 Skill，AI 根据用户身份与对话意图自动加载对应参考文档。Skill 采用**渐进式加载**：入口 SKILL.md 只含认证与身份识别，双端索引列出 API 清单，每个 API 的详细定义独立文件按需加载。
+
+- SKILL 入口：https://shangshangji.cn/SKILL.md（认证登录 + 身份识别 + 错误处理）
+- 客户端索引：https://shangshangji.cn/references/SKILL-CUSTOMER.md（16 个 API 的索引）
+- 服务者端索引：https://shangshangji.cn/references/SKILL-SERVANT.md（17 个 API 的索引）
+- API 详情 URL 规则：`https://shangshangji.cn/references/api/<api-file-name>`（35 个文件，按需 WebFetch）
+- API Base URL：`https://hkp-api.shangshangji.cn`
+- 认证方式：Bearer JWT（通过微信扫码登录获取，双端共用登录态）
+- Token 存放：`~/.upupgood/.token`
+
+**Claude Code 安装（仅 3 个文件，API 详情按需获取）**：
+
+```bash
+SKILL_DIR=~/.claude/skills/upupgood
+mkdir -p "$SKILL_DIR/references"
+curl -fsSL https://shangshangji.cn/SKILL.md -o "$SKILL_DIR/SKILL.md"
+curl -fsSL https://shangshangji.cn/references/SKILL-CUSTOMER.md -o "$SKILL_DIR/references/SKILL-CUSTOMER.md"
+curl -fsSL https://shangshangji.cn/references/SKILL-SERVANT.md -o "$SKILL_DIR/references/SKILL-SERVANT.md"
+```
+
+Agent 对话中若需要某个具体 API 定义，会根据索引中的 "API 文件名" 自动 WebFetch `https://shangshangji.cn/references/api/<api-file-name>` 获取。
+
+**客户端覆盖能力**：服务类型查询、推荐服务者搜索、产品详情、服务需求发布/取消、预约下单、订单查询/修改/取消/验收、小程序跳转链接生成。
+
+**服务者端覆盖能力**：订单列表/详情/最新/数量、接单/拒绝、完成服务、调整订单金额、专拍订单提交/改价/撤回、查询上笔专拍名称、AI 匹配分析、报名需求/取消报名、匹配信息查询。
+
+**推荐同时安装**：高德地图 Skill（https://lbs.amap.com/api/cli/map-cli/install），与本 Skill 协同完成地址 ⇄ 坐标转换、POI 搜索、路线规划等地图能力。
+
 ## Optional
 
 - [官网首页](https://shangshangji.cn/)
+- [Agent Skill 入口（SKILL.md）](https://shangshangji.cn/SKILL.md)
+- [客户端参考（SKILL-CUSTOMER.md）](https://shangshangji.cn/references/SKILL-CUSTOMER.md)
+- [服务者端参考（SKILL-SERVANT.md）](https://shangshangji.cn/references/SKILL-SERVANT.md)
 - [robots.txt](https://shangshangji.cn/robots.txt)
 - [sitemap.xml](https://shangshangji.cn/sitemap.xml)
