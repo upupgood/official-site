@@ -110,7 +110,7 @@
 1. top-product-types              → 获取服务类型列表
 2. recommend-servant-list         → 按关键词 + 位置搜索服务者
 3. serviceproduct/get             → 查看产品详情
-4. serviceorder/appoint           → 直接下单（API）
+4. serviceorder/appoint           → 直接下单（API）, 然后生成小程序订单查看链接
    或
 4. serviceorder/wxacreateorderlink → 生成小程序下单链接
 ```
