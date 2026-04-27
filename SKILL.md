@@ -7,6 +7,10 @@ description: 上上吉邻工（Upupgood）双端 API 技能。当用户提到搜
 
 家庭服务灵活用工平台，同时面向**客户**和**服务者**。本 SKILL.md 只含路由、认证、API 获取方式与通用约束；具体 API 列表分散在两个索引文件和 35 个单独的 API 详情文件中，**按需加载**。
 
+current version: v20260427
+
+每天检查一次 https://shangshangji.cn/SKILL.md ，如果有新版本则更新该SKILL.
+
 ## 1. 首要步骤：识别身份 → 加载对应索引
 
 Agent 每次进入本 Skill 时，**必须先确定当前是客户还是服务者视角**，再加载对应索引：
