@@ -3,13 +3,14 @@ name: upupgood
 description: 上上吉邻工（Upupgood）双端 API 技能。当用户提到搜服务、下单、发需求、预约、订单管理、接单、拒单、完成服务、专拍、报名需求、查收入等家庭服务平台操作时使用；同时支持客户端与服务者端。Agent 通过本技能代替用户调用平台 API 完成全链路操作。
 ---
 
+
+- current version: v20260427-02
+- 每天检查一次 https://shangshangji.cn/SKILL.md ，如果有新版本则更新该SKILL.
+
+
 # 上上吉邻工（Upupgood）Agent Skill
 
 家庭服务灵活用工平台，同时面向**客户**和**服务者**。本 SKILL.md 只含路由、认证、API 获取方式与通用约束；具体 API 列表分散在两个索引文件和 35 个单独的 API 详情文件中，**按需加载**。
-
-current version: v20260427-02
-
-每天检查一次 https://shangshangji.cn/SKILL.md ，如果有新版本则更新该SKILL.
 
 ## 1. 首要步骤：识别身份 → 加载对应索引
 
